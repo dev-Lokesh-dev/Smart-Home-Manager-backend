@@ -8,7 +8,12 @@ import { roomNdeviceRouter } from "./routes/roomNdevice.route.js";
 import { routineRoute } from "./routes/routine.route.js";
 const app=express();
 
-app.use(cors())
+app.use(cors({
+  origin: 'https://vsmarthomes.netlify.app', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  credentials: true 
+}));
+
 app.use(express.json())
 
 app.use("/user",userRouter)
